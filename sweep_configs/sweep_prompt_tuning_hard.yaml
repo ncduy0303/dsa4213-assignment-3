@@ -8,10 +8,10 @@ parameters:
   learning_rate:
     values: [2e-5, 2e-4, 2e-3, 2e-2]
   prompt_tuning_init_text:
-    values:
+    values: # all prompts here will be tokennized into 12 tokens by the BERT tokenizer
       - "classify the emotion of the following text: "
-      - "determine the emotion expressed in the text: "
-      - "what is the emotion of the text: "
+      - "assign the following text into suitable categories: "
+      - "read the following text and think about it: "
 
   # --- Fixed Parameters ---
   seed:
