@@ -8,19 +8,20 @@ import os
 import random
 import sys
 from dataclasses import dataclass, field
-from typing import Iterable, Optional, cast
+from typing import Iterable, Optional, Union, cast, Literal
 
 import datasets
 import evaluate
 import numpy as np
 import transformers
-from datasets import Value, load_dataset
+from datasets import DatasetDict, Value, load_dataset
+from peft import (LoraConfig, PromptTuningConfig, PromptTuningInit, TaskType,
+                  get_peft_model)
 from transformers import (AutoConfig, AutoModelForSequenceClassification,
                           AutoTokenizer, DataCollatorWithPadding,
                           EvalPrediction, HfArgumentParser, Trainer,
                           TrainingArguments, default_data_collator, set_seed)
 from transformers.hf_argparser import DataClassType
-from datasets import DatasetDict
 
 logger = logging.getLogger(__name__)
 
@@ -246,6 +247,49 @@ class ModelArguments:
     )
 
 
+@dataclass
+class PeftArguments:
+    """
+    Arguments pertaining to which PEFT method we are going to use.
+    """
+    peft_method: Optional[Literal['lora', 'prompt_tuning']] = field(
+        default=None,
+        metadata={"help": "The PEFT method to use."}
+    )
+    lora_r: int = field(
+        default=8,
+        metadata={"help": "Lora attention dimension"}
+    )
+    lora_alpha: int = field(
+        default=8,
+        metadata={"help": "Lora alpha"}
+    )
+    lora_dropout: float = field(
+        default=0.0,
+        metadata={"help": "Lora dropout"}
+    )
+    lora_target_modules: Optional[str] = field(
+        default=None,
+        metadata={
+            "help": "Comma separated list of target modules to apply Lora to. For example, 'query,value' for BERT."
+        }
+    )
+    lora_bias: Literal["none", "all", "lora_only"] = field(
+        default="none",
+        metadata={"help": "Bias type for Lora. Can be 'none', 'all' or 'lora_only'"}
+    )
+    prompt_tuning_num_virtual_tokens: int = field(
+        default=20,
+        metadata={"help": "Number of virtual tokens, initialized randomly."}
+    )
+    prompt_tuning_init_text: Optional[str] = field(
+        default=None,
+        metadata={
+            "help": "The text to use for prompt tuning initialization, will override `prompt_tuning_num_virtual_tokens`."
+        }
+    )
+
+
 def get_label_list(raw_dataset, split="train") -> list[str]:
     """Get the list of labels from a multi-label dataset"""
 
@@ -268,17 +312,18 @@ def main():
     parser = HfArgumentParser(
         cast(
             Iterable[DataClassType],
-            (ModelArguments, DataTrainingArguments, TrainingArguments)
+            (ModelArguments, DataTrainingArguments,
+             TrainingArguments, PeftArguments)
         )
     )
     if len(sys.argv) == 2 and sys.argv[1].endswith(".json"):
         # If we pass only one argument to the script and it's the path to a json file,
         # let's parse it to get our arguments.
-        model_args, data_args, training_args = parser.parse_json_file(
+        model_args, data_args, training_args, peft_args = parser.parse_json_file(
             json_file=os.path.abspath(sys.argv[1])
         )
     else:
-        model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+        model_args, data_args, training_args, peft_args = parser.parse_args_into_dataclasses()
 
     # Setup logging
     logging.basicConfig(
@@ -585,6 +630,36 @@ def main():
             load_from_cache_file=not data_args.overwrite_cache,
             desc="Running tokenizer on dataset",
         )
+
+    # PEFT Integration
+    if peft_args.peft_method is not None:
+        logger.info(
+            f"PEFT method {peft_args.peft_method} is specified, applying PEFT now")
+        if peft_args.peft_method == 'lora':
+            peft_config = LoraConfig(
+                task_type=TaskType.SEQ_CLS,
+                target_modules=peft_args.lora_target_modules.split(
+                    ",") if peft_args.lora_target_modules is not None else None,
+                r=peft_args.lora_r,
+                lora_alpha=peft_args.lora_alpha,
+                lora_dropout=peft_args.lora_dropout,
+                bias=peft_args.lora_bias,
+            )
+        elif peft_args.peft_method == 'prompt_tuning':
+            peft_config = PromptTuningConfig(
+                task_type=TaskType.SEQ_CLS,
+                num_virtual_tokens=peft_args.prompt_tuning_num_virtual_tokens,
+                prompt_tuning_init_text=peft_args.prompt_tuning_init_text,
+                prompt_tuning_init=PromptTuningInit.TEXT if peft_args.prompt_tuning_init_text is not None else PromptTuningInit.RANDOM,
+            )
+        else:
+            raise ValueError(
+                f"PEFT method {peft_args.peft_method} not supported.")
+        model = get_peft_model(model, peft_config)
+        logger.info("PEFT model created.")
+        model.print_trainable_parameters()
+    else:
+        logger.info("No PEFT method specified. Performing full fine-tuning.")
 
     if training_args.do_train:
         if "train" not in raw_datasets:
