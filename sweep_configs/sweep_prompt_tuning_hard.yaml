@@ -1,0 +1,58 @@
+program: train.py
+method: grid
+metric:
+  name: eval/accuracy
+  goal: maximize
+parameters:
+  # --- Hyperparameters to Sweep ---
+  learning_rate:
+    values: [2e-5, 2e-4, 2e-3, 2e-2]
+  prompt_tuning_init_text:
+    values:
+      - "classify the emotion of the following text: "
+      - "determine the emotion expressed in the text: "
+      - "what is the emotion of the text: "
+
+  # --- Fixed Parameters ---
+  seed:
+    value: 23
+  peft_method:
+    value: "prompt_tuning"
+  model_name_or_path:
+    value: "roberta-base"
+  dataset_name:
+    value: "dair-ai/emotion"
+  metric_name:
+    value: "accuracy"
+  text_column_name:
+    value: "text"
+  label_column_name:
+    value: "label"
+  max_seq_length:
+    value: 128 # This is enough for the emotion dataset using BERT tokenizer
+  shuffle_train_dataset:
+    value: true
+  do_train:
+    value: true
+  do_eval:
+    value: true
+  do_predict:
+    value: true
+  per_device_train_batch_size:
+    value: 64
+  num_train_epochs:
+    value: 5
+  output_dir:
+    value: "./outputs/prompt_tuning_hard"
+  save_total_limit:
+    value: 2 # Only keep best + last checkpoint
+  eval_strategy:
+    value: "epoch"
+  save_strategy:
+    value: "epoch"
+  load_best_model_at_end:
+    value: true
+  metric_for_best_model:
+    value: "accuracy"
+  report_to:
+    value: "wandb"

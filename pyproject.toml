@@ -1,7 +1,7 @@
 [project]
 name = "dsa4213-assignment-3"
 version = "0.1.0"
-description = "Add your description here"
+description = "DSA4213 Assignment 3"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
@@ -11,4 +11,5 @@ dependencies = [
     "scikit-learn>=1.7.2",
     "torch>=2.8.0",
     "transformers>=4.57.0",
+    "wandb>=0.22.2",
 ]
