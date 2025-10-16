@@ -8,7 +8,7 @@ import os
 import random
 import sys
 from dataclasses import dataclass, field
-from typing import Iterable, Optional, Union, cast, Literal
+from typing import Iterable, Literal, Optional, Union, cast
 
 import datasets
 import evaluate
@@ -353,6 +353,13 @@ def main():
     # Set seed before initializing model.
     set_seed(training_args.seed)
 
+    # Create unique output directory for each W&B run
+    if "wandb" in training_args.report_to and os.environ.get("WANDB_RUN_ID"):
+        training_args.output_dir = os.path.join(
+            training_args.output_dir, os.environ["WANDB_RUN_ID"])
+        logger.info(
+            f"W&B run detected. Setting output directory to: {training_args.output_dir}")
+
     # Get the datasets: you can either provide your own CSV/JSON training and evaluation files, or specify a dataset name
     # to load from huggingface/datasets. In ether case, you can specify a the key of the column(s) containing the text and
     # the key of the column containing the label. If multiple columns are specified for the text, they will be joined together
@@ -651,6 +658,8 @@ def main():
                 num_virtual_tokens=peft_args.prompt_tuning_num_virtual_tokens,
                 prompt_tuning_init_text=peft_args.prompt_tuning_init_text,
                 prompt_tuning_init=PromptTuningInit.TEXT if peft_args.prompt_tuning_init_text is not None else PromptTuningInit.RANDOM,
+                # use the same tokenizer as the base model
+                tokenizer_name_or_path=model_args.model_name_or_path,
             )
         else:
             raise ValueError(
@@ -815,58 +824,55 @@ def main():
     if training_args.do_predict:
         assert predict_dataset is not None
         logger.info("*** Predict ***")
-        metrics = trainer.evaluate(
-            eval_dataset=predict_dataset  # type: ignore
+        # Removing the `label` columns if exists because it might contains -1 and Trainer won't like that.
+        # if "label" in predict_dataset.features:
+        #     predict_dataset = predict_dataset.remove_columns("label")
+        predict_results = trainer.predict(
+            predict_dataset,  # type: ignore
+            metric_key_prefix="predict"
         )
+        metrics = predict_results.metrics
         max_predict_samples = data_args.max_predict_samples if data_args.max_predict_samples is not None else len(
             predict_dataset)
         metrics["predict_samples"] = min(
             max_predict_samples, len(predict_dataset))
         trainer.log_metrics("predict", metrics)
         trainer.save_metrics("predict", metrics)
-
-        # Uncomment this to save predictions, currently replaced by the evaluate call above
-        # # Removing the `label` columns if exists because it might contains -1 and Trainer won't like that.
-        # if "label" in predict_dataset.features:
-        #     predict_dataset = predict_dataset.remove_columns("label")
-        # predictions = trainer.predict(
-        #     predict_dataset,  # type: ignore
-        #     metric_key_prefix="predict"
-        # ).predictions
-        # if is_regression:
-        #     predictions = np.squeeze(predictions)
-        # elif is_multi_label:
-        #     # Convert logits to multi-hot encoding. We compare the logits to 0 instead of 0.5, because the sigmoid is not applied.
-        #     # You can also pass `preprocess_logits_for_metrics=lambda logits, labels: nn.functional.sigmoid(logits)` to the Trainer
-        #     # and set p > 0.5 below (less efficient in this case)
-        #     predictions = np.array(
-        #         [np.where(p > 0, 1, 0) for p in predictions]
-        #     )
-        # else:
-        #     predictions = np.argmax(predictions, axis=1)
-        # output_predict_file = os.path.join(
-        #     training_args.output_dir,
-        #     "predict_results.txt"
-        # )
-        # if trainer.is_world_process_zero():
-        #     assert label_list is not None
-        #     with open(output_predict_file, "w") as writer:
-        #         logger.info("***** Predict results *****")
-        #         writer.write("index\tprediction\n")
-        #         for index, item in enumerate(predictions):
-        #             if is_regression:
-        #                 writer.write(f"{index}\t{item:3.3f}\n")
-        #             elif is_multi_label:
-        #                 # recover from multi-hot encoding
-        #                 item = [
-        #                     label_list[i]
-        #                     for i in range(len(item)) if item[i] == 1
-        #                 ]
-        #                 writer.write(f"{index}\t{item}\n")
-        #             else:
-        #                 item = label_list[item]
-        #                 writer.write(f"{index}\t{item}\n")
-        # logger.info(f"Predict results saved at {output_predict_file}")
+        predictions = predict_results.predictions
+        if is_regression:
+            predictions = np.squeeze(predictions)
+        elif is_multi_label:
+            # Convert logits to multi-hot encoding. We compare the logits to 0 instead of 0.5, because the sigmoid is not applied.
+            # You can also pass `preprocess_logits_for_metrics=lambda logits, labels: nn.functional.sigmoid(logits)` to the Trainer
+            # and set p > 0.5 below (less efficient in this case)
+            predictions = np.array(
+                [np.where(p > 0, 1, 0) for p in predictions]
+            )
+        else:
+            predictions = np.argmax(predictions, axis=1)
+        output_predict_file = os.path.join(
+            training_args.output_dir,
+            "predict_results.txt"
+        )
+        if trainer.is_world_process_zero():
+            assert label_list is not None
+            with open(output_predict_file, "w") as writer:
+                logger.info("***** Predict results *****")
+                writer.write("index\tprediction\n")
+                for index, item in enumerate(predictions):
+                    if is_regression:
+                        writer.write(f"{index}\t{item:3.3f}\n")
+                    elif is_multi_label:
+                        # recover from multi-hot encoding
+                        item = [
+                            label_list[i]
+                            for i in range(len(item)) if item[i] == 1
+                        ]
+                        writer.write(f"{index}\t{item}\n")
+                    else:
+                        item = label_list[item]
+                        writer.write(f"{index}\t{item}\n")
+        logger.info(f"Predict results saved at {output_predict_file}")
     kwargs = {
         "finetuned_from": model_args.model_name_or_path,
         "tasks": "text-classification"
