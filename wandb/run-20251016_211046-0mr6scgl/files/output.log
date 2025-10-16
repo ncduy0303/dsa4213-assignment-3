@@ -1,0 +1,278 @@
+wandb: WARNING Config item 'output_dir' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'do_train' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'do_eval' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'do_predict' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'eval_strategy' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'per_device_train_batch_size' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'learning_rate' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'num_train_epochs' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'save_strategy' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'save_total_limit' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'seed' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'load_best_model_at_end' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'metric_for_best_model' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'report_to' was locked by 'sweep' (ignored update).
+ 20%|██        | 250/1250 [00:37<02:25,  6.88it/s][INFO|trainer.py:1012] 2025-10-16 21:11:24,600 >> The following columns in the Evaluation set don't have a corresponding argument in `PeftModelForSequenceClassification.forward` and have been ignored: sentence, text. If sentence, text are not expected by `PeftModelForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:4643] 2025-10-16 21:11:24,602 >>
+***** Running Evaluation *****
+[INFO|trainer.py:4645] 2025-10-16 21:11:24,603 >>   Num examples = 2000
+[INFO|trainer.py:4648] 2025-10-16 21:11:24,603 >>   Batch size = 8
+ 20%|██        | 250/1250 [00:40<02:25,  6.88it/s[INFO|trainer.py:4309] 2025-10-16 21:11:28,047 >> Saving model checkpoint to ./lora_outputs/0mr6scgl/checkpoint-250
+[INFO|configuration_utils.py:765] 2025-10-16 21:11:28,598 >> loading configuration file config.json from cache at /home/e/e0969050/.cache/huggingface/hub/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+{'eval_loss': 0.42848002910614014, 'eval_accuracy': 0.846, 'eval_runtime': 3.4406, 'eval_samples_per_second': 581.301, 'eval_steps_per_second': 72.663, 'epoch': 1.0}
+[INFO|configuration_utils.py:839] 2025-10-16 21:11:28,600 >> Model config RobertaConfig {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.57.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_utils_base.py:2590] 2025-10-16 21:11:28,630 >> tokenizer config file saved in ./lora_outputs/0mr6scgl/checkpoint-250/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2599] 2025-10-16 21:11:28,633 >> Special tokens file saved in ./lora_outputs/0mr6scgl/checkpoint-250/special_tokens_map.json
+ 40%|████      | 500/1250 [01:17<01:49,  6.88it/s][INFO|trainer.py:1012] 2025-10-16 21:12:05,504 >> The following columns in the Evaluation set don't have a corresponding argument in `PeftModelForSequenceClassification.forward` and have been ignored: sentence, text. If sentence, text are not expected by `PeftModelForSequenceClassification.forward`,  you can safely ignore this message.
+{'loss': 0.6831, 'grad_norm': 3.864269971847534, 'learning_rate': 0.00012016, 'epoch': 2.0}
+[INFO|trainer.py:4643] 2025-10-16 21:12:05,506 >>
+***** Running Evaluation *****
+[INFO|trainer.py:4645] 2025-10-16 21:12:05,506 >>   Num examples = 2000
+[INFO|trainer.py:4648] 2025-10-16 21:12:05,507 >>   Batch size = 8
+ 40%|████      | 500/1250 [01:21<01:49,  6.88it/s[INFO|trainer.py:4309] 2025-10-16 21:12:08,944 >> Saving model checkpoint to ./lora_outputs/0mr6scgl/checkpoint-500
+[INFO|configuration_utils.py:765] 2025-10-16 21:12:09,503 >> loading configuration file config.json from cache at /home/e/e0969050/.cache/huggingface/hub/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+{'eval_loss': 0.2999904453754425, 'eval_accuracy': 0.8925, 'eval_runtime': 3.4335, 'eval_samples_per_second': 582.496, 'eval_steps_per_second': 72.812, 'epoch': 2.0}
+[INFO|configuration_utils.py:839] 2025-10-16 21:12:09,505 >> Model config RobertaConfig {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.57.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_utils_base.py:2590] 2025-10-16 21:12:09,533 >> tokenizer config file saved in ./lora_outputs/0mr6scgl/checkpoint-500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2599] 2025-10-16 21:12:09,536 >> Special tokens file saved in ./lora_outputs/0mr6scgl/checkpoint-500/special_tokens_map.json
+ 60%|██████    | 750/1250 [01:58<01:12,  6.88it/s][INFO|trainer.py:1012] 2025-10-16 21:12:46,416 >> The following columns in the Evaluation set don't have a corresponding argument in `PeftModelForSequenceClassification.forward` and have been ignored: sentence, text. If sentence, text are not expected by `PeftModelForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:4643] 2025-10-16 21:12:46,417 >>
+***** Running Evaluation *****
+[INFO|trainer.py:4645] 2025-10-16 21:12:46,418 >>   Num examples = 2000
+[INFO|trainer.py:4648] 2025-10-16 21:12:46,418 >>   Batch size = 8
+ 60%|██████    | 750/1250 [02:02<01:12,  6.88it/s[INFO|trainer.py:4309] 2025-10-16 21:12:49,844 >> Saving model checkpoint to ./lora_outputs/0mr6scgl/checkpoint-750
+[INFO|configuration_utils.py:765] 2025-10-16 21:12:50,391 >> loading configuration file config.json from cache at /home/e/e0969050/.cache/huggingface/hub/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+{'eval_loss': 0.24026381969451904, 'eval_accuracy': 0.9145, 'eval_runtime': 3.4225, 'eval_samples_per_second': 584.36, 'eval_steps_per_second': 73.045, 'epoch': 3.0}
+[INFO|configuration_utils.py:839] 2025-10-16 21:12:50,393 >> Model config RobertaConfig {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.57.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_utils_base.py:2590] 2025-10-16 21:12:50,418 >> tokenizer config file saved in ./lora_outputs/0mr6scgl/checkpoint-750/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2599] 2025-10-16 21:12:50,420 >> Special tokens file saved in ./lora_outputs/0mr6scgl/checkpoint-750/special_tokens_map.json
+[INFO|trainer.py:4418] 2025-10-16 21:12:50,521 >> Deleting older checkpoint [lora_outputs/0mr6scgl/checkpoint-250] due to args.save_total_limit
+ 80%|████████  | 1000/1250 [02:39<00:36,  6.88it/s][INFO|trainer.py:1012] 2025-10-16 21:13:27,312 >> The following columns in the Evaluation set don't have a corresponding argument in `PeftModelForSequenceClassification.forward` and have been ignored: sentence, text. If sentence, text are not expected by `PeftModelForSequenceClassification.forward`,  you can safely ignore this message.
+{'loss': 0.3175, 'grad_norm': 3.209731340408325, 'learning_rate': 4.016e-05, 'epoch': 4.0}
+[INFO|trainer.py:4643] 2025-10-16 21:13:27,313 >>
+***** Running Evaluation *****
+[INFO|trainer.py:4645] 2025-10-16 21:13:27,314 >>   Num examples = 2000
+[INFO|trainer.py:4648] 2025-10-16 21:13:27,314 >>   Batch size = 8
+ 80%|████████  | 1000/1250 [02:43<00:36,  6.88it/[INFO|trainer.py:4309] 2025-10-16 21:13:30,749 >> Saving model checkpoint to ./lora_outputs/0mr6scgl/checkpoint-1000
+[INFO|configuration_utils.py:765] 2025-10-16 21:13:31,281 >> loading configuration file config.json from cache at /home/e/e0969050/.cache/huggingface/hub/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+{'eval_loss': 0.21949279308319092, 'eval_accuracy': 0.915, 'eval_runtime': 3.4311, 'eval_samples_per_second': 582.904, 'eval_steps_per_second': 72.863, 'epoch': 4.0}
+[INFO|configuration_utils.py:839] 2025-10-16 21:13:31,283 >> Model config RobertaConfig {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.57.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_utils_base.py:2590] 2025-10-16 21:13:31,312 >> tokenizer config file saved in ./lora_outputs/0mr6scgl/checkpoint-1000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2599] 2025-10-16 21:13:31,314 >> Special tokens file saved in ./lora_outputs/0mr6scgl/checkpoint-1000/special_tokens_map.json
+[INFO|trainer.py:4418] 2025-10-16 21:13:31,414 >> Deleting older checkpoint [lora_outputs/0mr6scgl/checkpoint-500] due to args.save_total_limit
+100%|██████████| 1250/1250 [03:20<00:00,  6.88it/s][INFO|trainer.py:1012] 2025-10-16 21:14:08,210 >> The following columns in the Evaluation set don't have a corresponding argument in `PeftModelForSequenceClassification.forward` and have been ignored: sentence, text. If sentence, text are not expected by `PeftModelForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:4643] 2025-10-16 21:14:08,212 >>
+***** Running Evaluation *****
+[INFO|trainer.py:4645] 2025-10-16 21:14:08,213 >>   Num examples = 2000
+[INFO|trainer.py:4648] 2025-10-16 21:14:08,213 >>   Batch size = 8
+100%|██████████| 1250/1250 [03:24<00:00,  6.88it/[INFO|trainer.py:4309] 2025-10-16 21:14:11,658 >> Saving model checkpoint to ./lora_outputs/0mr6scgl/checkpoint-1250
+[INFO|configuration_utils.py:765] 2025-10-16 21:14:12,220 >> loading configuration file config.json from cache at /home/e/e0969050/.cache/huggingface/hub/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+{'eval_loss': 0.20622754096984863, 'eval_accuracy': 0.918, 'eval_runtime': 3.4415, 'eval_samples_per_second': 581.15, 'eval_steps_per_second': 72.644, 'epoch': 5.0}
+[INFO|configuration_utils.py:839] 2025-10-16 21:14:12,222 >> Model config RobertaConfig {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.57.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_utils_base.py:2590] 2025-10-16 21:14:12,251 >> tokenizer config file saved in ./lora_outputs/0mr6scgl/checkpoint-1250/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2599] 2025-10-16 21:14:12,255 >> Special tokens file saved in ./lora_outputs/0mr6scgl/checkpoint-1250/special_tokens_map.json
+[INFO|trainer.py:4418] 2025-10-16 21:14:12,356 >> Deleting older checkpoint [lora_outputs/0mr6scgl/checkpoint-750] due to args.save_total_limit
+[INFO|trainer.py:2810] 2025-10-16 21:14:12,373 >>
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+[INFO|trainer.py:3033] 2025-10-16 21:14:12,373 >> Loading best model from ./lora_outputs/0mr6scgl/checkpoint-1250 (score: 0.918).
+100%|██████████| 1250/1250 [03:24<00:00,  6.10it/s]
+{'train_runtime': 206.2945, 'train_samples_per_second': 387.795, 'train_steps_per_second': 6.059, 'train_loss': 0.4542396179199219, 'epoch': 5.0}
+[INFO|trainer.py:4309] 2025-10-16 21:14:12,401 >> Saving model checkpoint to ./lora_outputs/0mr6scgl
+[INFO|configuration_utils.py:765] 2025-10-16 21:14:12,951 >> loading configuration file config.json from cache at /home/e/e0969050/.cache/huggingface/hub/models--roberta-base/snapshots/e2da8e2f811d1448a5b465c236feacd80ffbac7b/config.json
+[INFO|configuration_utils.py:839] 2025-10-16 21:14:12,953 >> Model config RobertaConfig {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.57.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_utils_base.py:2590] 2025-10-16 21:14:12,976 >> tokenizer config file saved in ./lora_outputs/0mr6scgl/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2599] 2025-10-16 21:14:12,978 >> Special tokens file saved in ./lora_outputs/0mr6scgl/special_tokens_map.json
+***** train metrics *****
+  epoch                    =        5.0
+  total_flos               =  4951934GF
+  train_loss               =     0.4542
+  train_runtime            = 0:03:26.29
+  train_samples            =      16000
+  train_samples_per_second =    387.795
+  train_steps_per_second   =      6.059
+10/16/2025 21:14:13 - INFO - __main__ - *** Evaluate ***
+[INFO|trainer.py:1012] 2025-10-16 21:14:13,056 >> The following columns in the Evaluation set don't have a corresponding argument in `PeftModelForSequenceClassification.forward` and have been ignored: sentence, text. If sentence, text are not expected by `PeftModelForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:4643] 2025-10-16 21:14:13,058 >>
+***** Running Evaluation *****
+[INFO|trainer.py:4645] 2025-10-16 21:14:13,058 >>   Num examples = 2000
+[INFO|trainer.py:4648] 2025-10-16 21:14:13,058 >>   Batch size = 8
+100%|██████████| 250/250 [00:03<00:00, 73.83it/s]
+***** eval metrics *****
+  epoch                   =        5.0
+  eval_accuracy           =      0.918
+  eval_loss               =     0.2062
+  eval_runtime            = 0:00:03.40
+  eval_samples            =       2000
+  eval_samples_per_second =    587.746
+  eval_steps_per_second   =     73.468
+10/16/2025 21:14:16 - INFO - __main__ - *** Predict ***
+[INFO|trainer.py:1012] 2025-10-16 21:14:16,470 >> The following columns in the test set don't have a corresponding argument in `PeftModelForSequenceClassification.forward` and have been ignored: sentence, text. If sentence, text are not expected by `PeftModelForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:4643] 2025-10-16 21:14:16,471 >>
+***** Running Prediction *****
+[INFO|trainer.py:4645] 2025-10-16 21:14:16,472 >>   Num examples = 2000
+[INFO|trainer.py:4648] 2025-10-16 21:14:16,472 >>   Batch size = 8
+100%|██████████| 250/250 [00:03<00:00, 73.78it/s]
+***** predict metrics *****
+  predict_accuracy           =      0.918
+  predict_loss               =     0.2148
+  predict_runtime            = 0:00:03.40
+  predict_samples            =       2000
+  predict_samples_per_second =    587.401
+  predict_steps_per_second   =     73.425
+10/16/2025 21:14:19 - INFO - __main__ - ***** Predict results *****
+10/16/2025 21:14:19 - INFO - __main__ - Predict results saved at ./lora_outputs/0mr6scgl/predict_results.txt
+[INFO|modelcard.py:456] 2025-10-16 21:14:20,420 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Text Classification', 'type': 'text-classification'}, 'metrics': [{'name': 'Accuracy', 'type': 'accuracy', 'value': 0.918}]}

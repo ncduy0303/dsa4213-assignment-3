@@ -1,0 +1,128 @@
+wandb: WARNING Config item 'output_dir' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'do_train' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'do_eval' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'do_predict' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'eval_strategy' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'per_device_train_batch_size' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'learning_rate' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'num_train_epochs' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'save_strategy' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'save_total_limit' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'seed' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'load_best_model_at_end' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'metric_for_best_model' was locked by 'sweep' (ignored update).
+wandb: WARNING Config item 'report_to' was locked by 'sweep' (ignored update).
+ 20%|██        | 250/1250 [00:49<03:15,  5.12it/s][INFO|trainer.py:1012] 2025-10-16 20:23:57,158 >> The following columns in the Evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text, sentence. If text, sentence are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:4643] 2025-10-16 20:23:57,160 >>
+***** Running Evaluation *****
+[INFO|trainer.py:4645] 2025-10-16 20:23:57,160 >>   Num examples = 2000
+[INFO|trainer.py:4648] 2025-10-16 20:23:57,161 >>   Batch size = 8
+ 20%|██        | 250/1250 [00:52<03:15,  5.12it/s[INFO|trainer.py:4309] 2025-10-16 20:24:00,372 >> Saving model checkpoint to ./full_finetuning_outputs/txlw1op4/checkpoint-250
+[INFO|configuration_utils.py:491] 2025-10-16 20:24:00,376 >> Configuration saved in ./full_finetuning_outputs/txlw1op4/checkpoint-250/config.json
+{'eval_loss': 1.5848060846328735, 'eval_accuracy': 0.352, 'eval_runtime': 3.2074, 'eval_samples_per_second': 623.559, 'eval_steps_per_second': 77.945, 'epoch': 1.0}
+[INFO|modeling_utils.py:4185] 2025-10-16 20:24:01,639 >> Model weights saved in ./full_finetuning_outputs/txlw1op4/checkpoint-250/model.safetensors
+[INFO|tokenization_utils_base.py:2590] 2025-10-16 20:24:01,644 >> tokenizer config file saved in ./full_finetuning_outputs/txlw1op4/checkpoint-250/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2599] 2025-10-16 20:24:01,649 >> Special tokens file saved in ./full_finetuning_outputs/txlw1op4/checkpoint-250/special_tokens_map.json
+ 40%|████      | 500/1250 [01:45<02:26,  5.13it/s][INFO|trainer.py:1012] 2025-10-16 20:24:52,870 >> The following columns in the Evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text, sentence. If text, sentence are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+{'loss': 1.5893, 'grad_norm': 1.354683756828308, 'learning_rate': 0.00012016, 'epoch': 2.0}
+[INFO|trainer.py:4643] 2025-10-16 20:24:52,873 >>
+***** Running Evaluation *****
+[INFO|trainer.py:4645] 2025-10-16 20:24:52,873 >>   Num examples = 2000
+[INFO|trainer.py:4648] 2025-10-16 20:24:52,873 >>   Batch size = 8
+ 40%|████      | 500/1250 [01:48<02:26,  5.13it/s[INFO|trainer.py:4309] 2025-10-16 20:24:56,074 >> Saving model checkpoint to ./full_finetuning_outputs/txlw1op4/checkpoint-500
+[INFO|configuration_utils.py:491] 2025-10-16 20:24:56,079 >> Configuration saved in ./full_finetuning_outputs/txlw1op4/checkpoint-500/config.json
+{'eval_loss': 1.5806775093078613, 'eval_accuracy': 0.352, 'eval_runtime': 3.1968, 'eval_samples_per_second': 625.623, 'eval_steps_per_second': 78.203, 'epoch': 2.0}
+[INFO|modeling_utils.py:4185] 2025-10-16 20:24:57,256 >> Model weights saved in ./full_finetuning_outputs/txlw1op4/checkpoint-500/model.safetensors
+[INFO|tokenization_utils_base.py:2590] 2025-10-16 20:24:57,260 >> tokenizer config file saved in ./full_finetuning_outputs/txlw1op4/checkpoint-500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2599] 2025-10-16 20:24:57,263 >> Special tokens file saved in ./full_finetuning_outputs/txlw1op4/checkpoint-500/special_tokens_map.json
+ 60%|██████    | 750/1250 [02:40<01:37,  5.12it/s][INFO|trainer.py:1012] 2025-10-16 20:25:48,430 >> The following columns in the Evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text, sentence. If text, sentence are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:4643] 2025-10-16 20:25:48,433 >>
+***** Running Evaluation *****
+[INFO|trainer.py:4645] 2025-10-16 20:25:48,433 >>   Num examples = 2000
+[INFO|trainer.py:4648] 2025-10-16 20:25:48,433 >>   Batch size = 8
+ 60%|██████    | 750/1250 [02:44<01:37,  5.12it/s[INFO|trainer.py:4309] 2025-10-16 20:25:51,630 >> Saving model checkpoint to ./full_finetuning_outputs/txlw1op4/checkpoint-750
+[INFO|configuration_utils.py:491] 2025-10-16 20:25:51,634 >> Configuration saved in ./full_finetuning_outputs/txlw1op4/checkpoint-750/config.json
+{'eval_loss': 1.591747522354126, 'eval_accuracy': 0.275, 'eval_runtime': 3.1924, 'eval_samples_per_second': 626.496, 'eval_steps_per_second': 78.312, 'epoch': 3.0}
+[INFO|modeling_utils.py:4185] 2025-10-16 20:25:52,942 >> Model weights saved in ./full_finetuning_outputs/txlw1op4/checkpoint-750/model.safetensors
+[INFO|tokenization_utils_base.py:2590] 2025-10-16 20:25:52,947 >> tokenizer config file saved in ./full_finetuning_outputs/txlw1op4/checkpoint-750/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2599] 2025-10-16 20:25:52,950 >> Special tokens file saved in ./full_finetuning_outputs/txlw1op4/checkpoint-750/special_tokens_map.json
+[INFO|trainer.py:4418] 2025-10-16 20:25:54,929 >> Deleting older checkpoint [full_finetuning_outputs/txlw1op4/checkpoint-500] due to args.save_total_limit
+ 80%|████████  | 1000/1250 [03:36<00:48,  5.11it/s][INFO|trainer.py:1012] 2025-10-16 20:26:44,342 >> The following columns in the Evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text, sentence. If text, sentence are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+{'loss': 1.582, 'grad_norm': 1.1172149181365967, 'learning_rate': 4.016e-05, 'epoch': 4.0}
+[INFO|trainer.py:4643] 2025-10-16 20:26:44,343 >>
+***** Running Evaluation *****
+[INFO|trainer.py:4645] 2025-10-16 20:26:44,344 >>   Num examples = 2000
+[INFO|trainer.py:4648] 2025-10-16 20:26:44,344 >>   Batch size = 8
+ 80%|████████  | 1000/1250 [03:39<00:48,  5.11it/[INFO|trainer.py:4309] 2025-10-16 20:26:47,547 >> Saving model checkpoint to ./full_finetuning_outputs/txlw1op4/checkpoint-1000
+[INFO|configuration_utils.py:491] 2025-10-16 20:26:47,551 >> Configuration saved in ./full_finetuning_outputs/txlw1op4/checkpoint-1000/config.json
+{'eval_loss': 1.5850915908813477, 'eval_accuracy': 0.352, 'eval_runtime': 3.1995, 'eval_samples_per_second': 625.101, 'eval_steps_per_second': 78.138, 'epoch': 4.0}
+[INFO|modeling_utils.py:4185] 2025-10-16 20:26:48,747 >> Model weights saved in ./full_finetuning_outputs/txlw1op4/checkpoint-1000/model.safetensors
+[INFO|tokenization_utils_base.py:2590] 2025-10-16 20:26:48,751 >> tokenizer config file saved in ./full_finetuning_outputs/txlw1op4/checkpoint-1000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2599] 2025-10-16 20:26:48,753 >> Special tokens file saved in ./full_finetuning_outputs/txlw1op4/checkpoint-1000/special_tokens_map.json
+[INFO|trainer.py:4418] 2025-10-16 20:26:50,698 >> Deleting older checkpoint [full_finetuning_outputs/txlw1op4/checkpoint-750] due to args.save_total_limit
+100%|██████████| 1250/1250 [04:32<00:00,  5.12it/s][INFO|trainer.py:1012] 2025-10-16 20:27:40,067 >> The following columns in the Evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text, sentence. If text, sentence are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:4643] 2025-10-16 20:27:40,069 >>
+***** Running Evaluation *****
+[INFO|trainer.py:4645] 2025-10-16 20:27:40,069 >>   Num examples = 2000
+[INFO|trainer.py:4648] 2025-10-16 20:27:40,069 >>   Batch size = 8
+100%|██████████| 1250/1250 [04:35<00:00,  5.12it/[INFO|trainer.py:4309] 2025-10-16 20:27:43,263 >> Saving model checkpoint to ./full_finetuning_outputs/txlw1op4/checkpoint-1250
+[INFO|configuration_utils.py:491] 2025-10-16 20:27:43,269 >> Configuration saved in ./full_finetuning_outputs/txlw1op4/checkpoint-1250/config.json
+{'eval_loss': 1.5812902450561523, 'eval_accuracy': 0.352, 'eval_runtime': 3.1903, 'eval_samples_per_second': 626.906, 'eval_steps_per_second': 78.363, 'epoch': 5.0}
+[INFO|modeling_utils.py:4185] 2025-10-16 20:27:44,478 >> Model weights saved in ./full_finetuning_outputs/txlw1op4/checkpoint-1250/model.safetensors
+[INFO|tokenization_utils_base.py:2590] 2025-10-16 20:27:44,483 >> tokenizer config file saved in ./full_finetuning_outputs/txlw1op4/checkpoint-1250/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2599] 2025-10-16 20:27:44,486 >> Special tokens file saved in ./full_finetuning_outputs/txlw1op4/checkpoint-1250/special_tokens_map.json
+[INFO|trainer.py:4418] 2025-10-16 20:27:46,484 >> Deleting older checkpoint [full_finetuning_outputs/txlw1op4/checkpoint-1000] due to args.save_total_limit
+[INFO|trainer.py:2810] 2025-10-16 20:27:46,653 >>
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+[INFO|trainer.py:3033] 2025-10-16 20:27:46,653 >> Loading best model from ./full_finetuning_outputs/txlw1op4/checkpoint-250 (score: 0.352).
+100%|██████████| 1250/1250 [04:39<00:00,  4.48it/s]
+{'train_runtime': 280.6127, 'train_samples_per_second': 285.09, 'train_steps_per_second': 4.455, 'train_loss': 1.58413447265625, 'epoch': 5.0}
+[INFO|trainer.py:4309] 2025-10-16 20:27:46,725 >> Saving model checkpoint to ./full_finetuning_outputs/txlw1op4
+[INFO|configuration_utils.py:491] 2025-10-16 20:27:46,729 >> Configuration saved in ./full_finetuning_outputs/txlw1op4/config.json
+[INFO|modeling_utils.py:4185] 2025-10-16 20:27:47,984 >> Model weights saved in ./full_finetuning_outputs/txlw1op4/model.safetensors
+[INFO|tokenization_utils_base.py:2590] 2025-10-16 20:27:47,987 >> tokenizer config file saved in ./full_finetuning_outputs/txlw1op4/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2599] 2025-10-16 20:27:47,989 >> Special tokens file saved in ./full_finetuning_outputs/txlw1op4/special_tokens_map.json
+***** train metrics *****
+  epoch                    =        5.0
+  total_flos               =  4901001GF
+  train_loss               =     1.5841
+  train_runtime            = 0:04:40.61
+  train_samples            =      16000
+  train_samples_per_second =     285.09
+  train_steps_per_second   =      4.455
+10/16/2025 20:27:48 - INFO - __main__ - *** Evaluate ***
+[INFO|trainer.py:1012] 2025-10-16 20:27:48,047 >> The following columns in the Evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text, sentence. If text, sentence are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:4643] 2025-10-16 20:27:48,049 >>
+***** Running Evaluation *****
+[INFO|trainer.py:4645] 2025-10-16 20:27:48,049 >>   Num examples = 2000
+[INFO|trainer.py:4648] 2025-10-16 20:27:48,049 >>   Batch size = 8
+100%|██████████| 250/250 [00:03<00:00, 79.10it/s]
+***** eval metrics *****
+  epoch                   =        5.0
+  eval_accuracy           =      0.352
+  eval_loss               =     1.5848
+  eval_runtime            = 0:00:03.17
+  eval_samples            =       2000
+  eval_samples_per_second =    629.752
+  eval_steps_per_second   =     78.719
+10/16/2025 20:27:51 - INFO - __main__ - *** Predict ***
+[INFO|trainer.py:1012] 2025-10-16 20:27:51,233 >> The following columns in the test set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: text, sentence. If text, sentence are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:4643] 2025-10-16 20:27:51,235 >>
+***** Running Prediction *****
+[INFO|trainer.py:4645] 2025-10-16 20:27:51,235 >>   Num examples = 2000
+[INFO|trainer.py:4648] 2025-10-16 20:27:51,235 >>   Batch size = 8
+100%|██████████| 250/250 [00:03<00:00, 79.10it/s]
+***** predict metrics *****
+  predict_accuracy           =     0.3475
+  predict_loss               =     1.5603
+  predict_runtime            = 0:00:03.17
+  predict_samples            =       2000
+  predict_samples_per_second =    629.794
+  predict_steps_per_second   =     78.724
+10/16/2025 20:27:54 - INFO - __main__ - ***** Predict results *****
+10/16/2025 20:27:54 - INFO - __main__ - Predict results saved at ./full_finetuning_outputs/txlw1op4/predict_results.txt
+[INFO|modelcard.py:456] 2025-10-16 20:27:55,155 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Text Classification', 'type': 'text-classification'}, 'metrics': [{'name': 'Accuracy', 'type': 'accuracy', 'value': 0.352}]}

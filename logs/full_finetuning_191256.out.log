@@ -1,0 +1,878 @@
+Job is running on xgpi0, started at Thu Oct 16 08:17:34 PM +08 2025
+Thu Oct 16 20:17:34 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.57.08              Driver Version: 575.57.08      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100 NVL                On  |   00000000:E3:00.0 Off |                    0 |
+| N/A   66C    P0             86W /  400W |       0MiB /  95830MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Starting W&B agent for sweep: ncduy0303/dsa4213-assignment-3/y041wz45
+10/16/2025 20:17:48 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: False, 16-bits training: False
+10/16/2025 20:17:48 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+average_tokens_across_devices=True,
+batch_eval_metrics=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=True,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=None,
+eval_strategy=IntervalStrategy.EPOCH,
+eval_use_gather_object=False,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=True,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=None,
+hub_revision=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=no,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=2e-05,
+length_column_name=length,
+liger_kernel_config=None,
+load_best_model_at_end=True,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=./full_finetuning_outputs/runs/Oct16_20-17-48_xgpi0,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_kwargs={},
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=accuracy,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=5.0,
+optim=OptimizerNames.ADAMW_TORCH_FUSED,
+optim_args=None,
+optim_target_modules=None,
+output_dir=./full_finetuning_outputs,
+overwrite_output_dir=False,
+parallelism_config=None,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=64,
+prediction_loss_only=False,
+project=huggingface,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['wandb'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=None,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=SaveStrategy.EPOCH,
+save_total_limit=2,
+seed=23,
+skip_memory_metrics=True,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+trackio_space_id=trackio,
+use_cpu=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+10/16/2025 20:17:48 - INFO - __main__ - W&B run detected. Setting output directory to: ./full_finetuning_outputs/lvvtyhdl
+10/16/2025 20:17:52 - INFO - datasets.builder - Found cached dataset emotion (/home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe)
+10/16/2025 20:17:52 - INFO - __main__ - Dataset loaded: DatasetDict({
+    train: Dataset({
+        features: ['text', 'label'],
+        num_rows: 16000
+    })
+    validation: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+    test: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+})
+10/16/2025 20:17:52 - INFO - __main__ - DatasetDict({
+    train: Dataset({
+        features: ['text', 'label'],
+        num_rows: 16000
+    })
+    validation: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+    test: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+})
+10/16/2025 20:17:52 - INFO - __main__ - setting problem type to single label classification
+10/16/2025 20:17:54 - WARNING - __main__ - The label2id key in the model config.json is not equal to the label2id key of this run. You can ignore this if you are doing finetuning.
+10/16/2025 20:17:54 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-b8ac2428a1057bd7_*_of_00001.arrow
+10/16/2025 20:17:54 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-721393e362c2a5f2_*_of_00001.arrow
+10/16/2025 20:17:54 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-6504e3b82624e895_*_of_00001.arrow
+10/16/2025 20:17:54 - INFO - __main__ - No PEFT method specified. Performing full fine-tuning.
+10/16/2025 20:17:54 - INFO - __main__ - Shuffling the training dataset
+10/16/2025 20:17:54 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-817b0581e49fdde8.arrow
+10/16/2025 20:17:54 - INFO - __main__ - Sample 15152 of the training set: {'text': 'i was already feeling loved for having been asked to be in the bridal party the thank you note made me feel even more so', 'label': 2, 'sentence': 'i was already feeling loved for having been asked to be in the bridal party the thank you note made me feel even more so', 'input_ids': [0, 118, 21, 416, 2157, 2638, 13, 519, 57, 553, 7, 28, 11, 5, 5378, 11934, 537, 5, 3392, 47, 1591, 156, 162, 619, 190, 55, 98, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+10/16/2025 20:17:54 - INFO - __main__ - Sample 12769 of the training set: {'text': 'i have always wanted ice cream when i feel lousy', 'label': 0, 'sentence': 'i have always wanted ice cream when i feel lousy', 'input_ids': [0, 118, 33, 460, 770, 2480, 6353, 77, 939, 619, 38909, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+10/16/2025 20:17:54 - INFO - __main__ - Sample 15541 of the training set: {'text': 'i start to remember how desperately i felt when trying to get pregnant after feeling impressed to start having a family and soon finding that its not as easy as you think to just get pregnant', 'label': 5, 'sentence': 'i start to remember how desperately i felt when trying to get pregnant after feeling impressed to start having a family and soon finding that its not as easy as you think to just get pregnant', 'input_ids': [0, 118, 386, 7, 2145, 141, 12420, 939, 1299, 77, 667, 7, 120, 5283, 71, 2157, 6889, 7, 386, 519, 10, 284, 8, 1010, 2609, 14, 63, 45, 25, 1365, 25, 47, 206, 7, 95, 120, 5283, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+10/16/2025 20:17:55 - INFO - __main__ - Using metric accuracy for evaluation.
+{'eval_loss': 0.26414746046066284, 'eval_accuracy': 0.9065, 'eval_runtime': 3.2191, 'eval_samples_per_second': 621.285, 'eval_steps_per_second': 77.661, 'epoch': 1.0}
+{'loss': 0.4611, 'grad_norm': 5.687619686126709, 'learning_rate': 1.2016000000000002e-05, 'epoch': 2.0}
+{'eval_loss': 0.1785660684108734, 'eval_accuracy': 0.926, 'eval_runtime': 3.2028, 'eval_samples_per_second': 624.445, 'eval_steps_per_second': 78.056, 'epoch': 2.0}
+{'eval_loss': 0.14121758937835693, 'eval_accuracy': 0.9355, 'eval_runtime': 3.1964, 'eval_samples_per_second': 625.696, 'eval_steps_per_second': 78.212, 'epoch': 3.0}
+{'loss': 0.13, 'grad_norm': 1.8605128526687622, 'learning_rate': 4.016e-06, 'epoch': 4.0}
+{'eval_loss': 0.13486231863498688, 'eval_accuracy': 0.9325, 'eval_runtime': 3.1949, 'eval_samples_per_second': 625.999, 'eval_steps_per_second': 78.25, 'epoch': 4.0}
+{'eval_loss': 0.13154302537441254, 'eval_accuracy': 0.938, 'eval_runtime': 3.19, 'eval_samples_per_second': 626.962, 'eval_steps_per_second': 78.37, 'epoch': 5.0}
+{'train_runtime': 281.1296, 'train_samples_per_second': 284.566, 'train_steps_per_second': 4.446, 'train_loss': 0.2550075637817383, 'epoch': 5.0}
+***** train metrics *****
+  epoch                    =        5.0
+  total_flos               =  4901001GF
+  train_loss               =      0.255
+  train_runtime            = 0:04:41.12
+  train_samples            =      16000
+  train_samples_per_second =    284.566
+  train_steps_per_second   =      4.446
+10/16/2025 20:22:39 - INFO - __main__ - *** Evaluate ***
+***** eval metrics *****
+  epoch                   =        5.0
+  eval_accuracy           =      0.938
+  eval_loss               =     0.1315
+  eval_runtime            = 0:00:03.16
+  eval_samples            =       2000
+  eval_samples_per_second =     631.66
+  eval_steps_per_second   =     78.957
+10/16/2025 20:22:42 - INFO - __main__ - *** Predict ***
+***** predict metrics *****
+  predict_accuracy           =     0.9285
+  predict_loss               =     0.1435
+  predict_runtime            = 0:00:03.16
+  predict_samples            =       2000
+  predict_samples_per_second =    631.268
+  predict_steps_per_second   =     78.908
+10/16/2025 20:22:45 - INFO - __main__ - ***** Predict results *****
+10/16/2025 20:22:45 - INFO - __main__ - Predict results saved at ./full_finetuning_outputs/lvvtyhdl/predict_results.txt
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33msleek-sweep-1[0m at: [34mhttps://wandb.ai/ncduy0303/dsa4213-assignment-3/runs/lvvtyhdl[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20251016_201757-lvvtyhdl/logs[0m
+10/16/2025 20:22:57 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: False, 16-bits training: False
+10/16/2025 20:22:57 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+average_tokens_across_devices=True,
+batch_eval_metrics=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=True,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=None,
+eval_strategy=IntervalStrategy.EPOCH,
+eval_use_gather_object=False,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=True,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=None,
+hub_revision=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=no,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0002,
+length_column_name=length,
+liger_kernel_config=None,
+load_best_model_at_end=True,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=./full_finetuning_outputs/runs/Oct16_20-22-57_xgpi0,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_kwargs={},
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=accuracy,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=5.0,
+optim=OptimizerNames.ADAMW_TORCH_FUSED,
+optim_args=None,
+optim_target_modules=None,
+output_dir=./full_finetuning_outputs,
+overwrite_output_dir=False,
+parallelism_config=None,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=64,
+prediction_loss_only=False,
+project=huggingface,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['wandb'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=None,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=SaveStrategy.EPOCH,
+save_total_limit=2,
+seed=23,
+skip_memory_metrics=True,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+trackio_space_id=trackio,
+use_cpu=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+10/16/2025 20:22:57 - INFO - __main__ - W&B run detected. Setting output directory to: ./full_finetuning_outputs/txlw1op4
+10/16/2025 20:23:01 - INFO - datasets.builder - Found cached dataset emotion (/home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe)
+10/16/2025 20:23:01 - INFO - __main__ - Dataset loaded: DatasetDict({
+    train: Dataset({
+        features: ['text', 'label'],
+        num_rows: 16000
+    })
+    validation: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+    test: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+})
+10/16/2025 20:23:01 - INFO - __main__ - DatasetDict({
+    train: Dataset({
+        features: ['text', 'label'],
+        num_rows: 16000
+    })
+    validation: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+    test: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+})
+10/16/2025 20:23:01 - INFO - __main__ - setting problem type to single label classification
+10/16/2025 20:23:03 - WARNING - __main__ - The label2id key in the model config.json is not equal to the label2id key of this run. You can ignore this if you are doing finetuning.
+10/16/2025 20:23:03 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-b8ac2428a1057bd7_*_of_00001.arrow
+10/16/2025 20:23:03 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-721393e362c2a5f2_*_of_00001.arrow
+10/16/2025 20:23:03 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-6504e3b82624e895_*_of_00001.arrow
+10/16/2025 20:23:03 - INFO - __main__ - No PEFT method specified. Performing full fine-tuning.
+10/16/2025 20:23:03 - INFO - __main__ - Shuffling the training dataset
+10/16/2025 20:23:03 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-817b0581e49fdde8.arrow
+10/16/2025 20:23:03 - INFO - __main__ - Sample 15152 of the training set: {'text': 'i was already feeling loved for having been asked to be in the bridal party the thank you note made me feel even more so', 'label': 2, 'sentence': 'i was already feeling loved for having been asked to be in the bridal party the thank you note made me feel even more so', 'input_ids': [0, 118, 21, 416, 2157, 2638, 13, 519, 57, 553, 7, 28, 11, 5, 5378, 11934, 537, 5, 3392, 47, 1591, 156, 162, 619, 190, 55, 98, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+10/16/2025 20:23:03 - INFO - __main__ - Sample 12769 of the training set: {'text': 'i have always wanted ice cream when i feel lousy', 'label': 0, 'sentence': 'i have always wanted ice cream when i feel lousy', 'input_ids': [0, 118, 33, 460, 770, 2480, 6353, 77, 939, 619, 38909, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+10/16/2025 20:23:03 - INFO - __main__ - Sample 15541 of the training set: {'text': 'i start to remember how desperately i felt when trying to get pregnant after feeling impressed to start having a family and soon finding that its not as easy as you think to just get pregnant', 'label': 5, 'sentence': 'i start to remember how desperately i felt when trying to get pregnant after feeling impressed to start having a family and soon finding that its not as easy as you think to just get pregnant', 'input_ids': [0, 118, 386, 7, 2145, 141, 12420, 939, 1299, 77, 667, 7, 120, 5283, 71, 2157, 6889, 7, 386, 519, 10, 284, 8, 1010, 2609, 14, 63, 45, 25, 1365, 25, 47, 206, 7, 95, 120, 5283, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+10/16/2025 20:23:04 - INFO - __main__ - Using metric accuracy for evaluation.
+{'eval_loss': 1.5848060846328735, 'eval_accuracy': 0.352, 'eval_runtime': 3.2074, 'eval_samples_per_second': 623.559, 'eval_steps_per_second': 77.945, 'epoch': 1.0}
+{'loss': 1.5893, 'grad_norm': 1.354683756828308, 'learning_rate': 0.00012016, 'epoch': 2.0}
+{'eval_loss': 1.5806775093078613, 'eval_accuracy': 0.352, 'eval_runtime': 3.1968, 'eval_samples_per_second': 625.623, 'eval_steps_per_second': 78.203, 'epoch': 2.0}
+{'eval_loss': 1.591747522354126, 'eval_accuracy': 0.275, 'eval_runtime': 3.1924, 'eval_samples_per_second': 626.496, 'eval_steps_per_second': 78.312, 'epoch': 3.0}
+{'loss': 1.582, 'grad_norm': 1.1172149181365967, 'learning_rate': 4.016e-05, 'epoch': 4.0}
+{'eval_loss': 1.5850915908813477, 'eval_accuracy': 0.352, 'eval_runtime': 3.1995, 'eval_samples_per_second': 625.101, 'eval_steps_per_second': 78.138, 'epoch': 4.0}
+{'eval_loss': 1.5812902450561523, 'eval_accuracy': 0.352, 'eval_runtime': 3.1903, 'eval_samples_per_second': 626.906, 'eval_steps_per_second': 78.363, 'epoch': 5.0}
+{'train_runtime': 280.6127, 'train_samples_per_second': 285.09, 'train_steps_per_second': 4.455, 'train_loss': 1.58413447265625, 'epoch': 5.0}
+***** train metrics *****
+  epoch                    =        5.0
+  total_flos               =  4901001GF
+  train_loss               =     1.5841
+  train_runtime            = 0:04:40.61
+  train_samples            =      16000
+  train_samples_per_second =     285.09
+  train_steps_per_second   =      4.455
+10/16/2025 20:27:48 - INFO - __main__ - *** Evaluate ***
+***** eval metrics *****
+  epoch                   =        5.0
+  eval_accuracy           =      0.352
+  eval_loss               =     1.5848
+  eval_runtime            = 0:00:03.17
+  eval_samples            =       2000
+  eval_samples_per_second =    629.752
+  eval_steps_per_second   =     78.719
+10/16/2025 20:27:51 - INFO - __main__ - *** Predict ***
+***** predict metrics *****
+  predict_accuracy           =     0.3475
+  predict_loss               =     1.5603
+  predict_runtime            = 0:00:03.17
+  predict_samples            =       2000
+  predict_samples_per_second =    629.794
+  predict_steps_per_second   =     78.724
+10/16/2025 20:27:54 - INFO - __main__ - ***** Predict results *****
+10/16/2025 20:27:54 - INFO - __main__ - Predict results saved at ./full_finetuning_outputs/txlw1op4/predict_results.txt
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mcolorful-sweep-2[0m at: [34mhttps://wandb.ai/ncduy0303/dsa4213-assignment-3/runs/txlw1op4[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20251016_202306-txlw1op4/logs[0m
+10/16/2025 20:28:02 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: False, 16-bits training: False
+10/16/2025 20:28:02 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+average_tokens_across_devices=True,
+batch_eval_metrics=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=True,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=None,
+eval_strategy=IntervalStrategy.EPOCH,
+eval_use_gather_object=False,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=True,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=None,
+hub_revision=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=no,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.002,
+length_column_name=length,
+liger_kernel_config=None,
+load_best_model_at_end=True,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=./full_finetuning_outputs/runs/Oct16_20-28-02_xgpi0,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_kwargs={},
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=accuracy,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=5.0,
+optim=OptimizerNames.ADAMW_TORCH_FUSED,
+optim_args=None,
+optim_target_modules=None,
+output_dir=./full_finetuning_outputs,
+overwrite_output_dir=False,
+parallelism_config=None,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=64,
+prediction_loss_only=False,
+project=huggingface,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['wandb'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=None,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=SaveStrategy.EPOCH,
+save_total_limit=2,
+seed=23,
+skip_memory_metrics=True,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+trackio_space_id=trackio,
+use_cpu=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+10/16/2025 20:28:02 - INFO - __main__ - W&B run detected. Setting output directory to: ./full_finetuning_outputs/iuhaifdi
+10/16/2025 20:28:07 - INFO - datasets.builder - Found cached dataset emotion (/home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe)
+10/16/2025 20:28:07 - INFO - __main__ - Dataset loaded: DatasetDict({
+    train: Dataset({
+        features: ['text', 'label'],
+        num_rows: 16000
+    })
+    validation: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+    test: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+})
+10/16/2025 20:28:07 - INFO - __main__ - DatasetDict({
+    train: Dataset({
+        features: ['text', 'label'],
+        num_rows: 16000
+    })
+    validation: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+    test: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+})
+10/16/2025 20:28:07 - INFO - __main__ - setting problem type to single label classification
+10/16/2025 20:28:08 - WARNING - __main__ - The label2id key in the model config.json is not equal to the label2id key of this run. You can ignore this if you are doing finetuning.
+10/16/2025 20:28:08 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-b8ac2428a1057bd7_*_of_00001.arrow
+10/16/2025 20:28:08 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-721393e362c2a5f2_*_of_00001.arrow
+10/16/2025 20:28:08 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-6504e3b82624e895_*_of_00001.arrow
+10/16/2025 20:28:08 - INFO - __main__ - No PEFT method specified. Performing full fine-tuning.
+10/16/2025 20:28:08 - INFO - __main__ - Shuffling the training dataset
+10/16/2025 20:28:08 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-817b0581e49fdde8.arrow
+10/16/2025 20:28:08 - INFO - __main__ - Sample 15152 of the training set: {'text': 'i was already feeling loved for having been asked to be in the bridal party the thank you note made me feel even more so', 'label': 2, 'sentence': 'i was already feeling loved for having been asked to be in the bridal party the thank you note made me feel even more so', 'input_ids': [0, 118, 21, 416, 2157, 2638, 13, 519, 57, 553, 7, 28, 11, 5, 5378, 11934, 537, 5, 3392, 47, 1591, 156, 162, 619, 190, 55, 98, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+10/16/2025 20:28:08 - INFO - __main__ - Sample 12769 of the training set: {'text': 'i have always wanted ice cream when i feel lousy', 'label': 0, 'sentence': 'i have always wanted ice cream when i feel lousy', 'input_ids': [0, 118, 33, 460, 770, 2480, 6353, 77, 939, 619, 38909, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+10/16/2025 20:28:08 - INFO - __main__ - Sample 15541 of the training set: {'text': 'i start to remember how desperately i felt when trying to get pregnant after feeling impressed to start having a family and soon finding that its not as easy as you think to just get pregnant', 'label': 5, 'sentence': 'i start to remember how desperately i felt when trying to get pregnant after feeling impressed to start having a family and soon finding that its not as easy as you think to just get pregnant', 'input_ids': [0, 118, 386, 7, 2145, 141, 12420, 939, 1299, 77, 667, 7, 120, 5283, 71, 2157, 6889, 7, 386, 519, 10, 284, 8, 1010, 2609, 14, 63, 45, 25, 1365, 25, 47, 206, 7, 95, 120, 5283, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+10/16/2025 20:28:10 - INFO - __main__ - Using metric accuracy for evaluation.
+{'eval_loss': 1.5929092168807983, 'eval_accuracy': 0.352, 'eval_runtime': 3.1929, 'eval_samples_per_second': 626.39, 'eval_steps_per_second': 78.299, 'epoch': 1.0}
+{'loss': 1.613, 'grad_norm': 1.4718772172927856, 'learning_rate': 0.0012016, 'epoch': 2.0}
+{'eval_loss': 1.5882600545883179, 'eval_accuracy': 0.352, 'eval_runtime': 3.1976, 'eval_samples_per_second': 625.46, 'eval_steps_per_second': 78.183, 'epoch': 2.0}
+{'eval_loss': 1.5934888124465942, 'eval_accuracy': 0.275, 'eval_runtime': 3.1863, 'eval_samples_per_second': 627.692, 'eval_steps_per_second': 78.462, 'epoch': 3.0}
+{'loss': 1.5839, 'grad_norm': 0.685873806476593, 'learning_rate': 0.0004016, 'epoch': 4.0}
+{'eval_loss': 1.5835394859313965, 'eval_accuracy': 0.352, 'eval_runtime': 3.1894, 'eval_samples_per_second': 627.075, 'eval_steps_per_second': 78.384, 'epoch': 4.0}
+{'eval_loss': 1.5803090333938599, 'eval_accuracy': 0.352, 'eval_runtime': 3.1951, 'eval_samples_per_second': 625.967, 'eval_steps_per_second': 78.246, 'epoch': 5.0}
+{'train_runtime': 281.2873, 'train_samples_per_second': 284.407, 'train_steps_per_second': 4.444, 'train_loss': 1.5942009521484375, 'epoch': 5.0}
+***** train metrics *****
+  epoch                    =        5.0
+  total_flos               =  4901001GF
+  train_loss               =     1.5942
+  train_runtime            = 0:04:41.28
+  train_samples            =      16000
+  train_samples_per_second =    284.407
+  train_steps_per_second   =      4.444
+10/16/2025 20:32:54 - INFO - __main__ - *** Evaluate ***
+***** eval metrics *****
+  epoch                   =        5.0
+  eval_accuracy           =      0.352
+  eval_loss               =     1.5929
+  eval_runtime            = 0:00:03.16
+  eval_samples            =       2000
+  eval_samples_per_second =    631.647
+  eval_steps_per_second   =     78.956
+10/16/2025 20:32:57 - INFO - __main__ - *** Predict ***
+***** predict metrics *****
+  predict_accuracy           =     0.3475
+  predict_loss               =     1.5672
+  predict_runtime            = 0:00:03.17
+  predict_samples            =       2000
+  predict_samples_per_second =    630.182
+  predict_steps_per_second   =     78.773
+10/16/2025 20:33:00 - INFO - __main__ - ***** Predict results *****
+10/16/2025 20:33:00 - INFO - __main__ - Predict results saved at ./full_finetuning_outputs/iuhaifdi/predict_results.txt
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mcurious-sweep-3[0m at: [34mhttps://wandb.ai/ncduy0303/dsa4213-assignment-3/runs/iuhaifdi[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20251016_202812-iuhaifdi/logs[0m
+10/16/2025 20:33:11 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: False, 16-bits training: False
+10/16/2025 20:33:11 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+average_tokens_across_devices=True,
+batch_eval_metrics=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=True,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=None,
+eval_strategy=IntervalStrategy.EPOCH,
+eval_use_gather_object=False,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=True,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=None,
+hub_revision=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=no,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.02,
+length_column_name=length,
+liger_kernel_config=None,
+load_best_model_at_end=True,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=./full_finetuning_outputs/runs/Oct16_20-33-11_xgpi0,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_kwargs={},
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=accuracy,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=5.0,
+optim=OptimizerNames.ADAMW_TORCH_FUSED,
+optim_args=None,
+optim_target_modules=None,
+output_dir=./full_finetuning_outputs,
+overwrite_output_dir=False,
+parallelism_config=None,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=64,
+prediction_loss_only=False,
+project=huggingface,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['wandb'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=None,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=SaveStrategy.EPOCH,
+save_total_limit=2,
+seed=23,
+skip_memory_metrics=True,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+trackio_space_id=trackio,
+use_cpu=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+10/16/2025 20:33:11 - INFO - __main__ - W&B run detected. Setting output directory to: ./full_finetuning_outputs/yjkffgw4
+10/16/2025 20:33:15 - INFO - datasets.builder - Found cached dataset emotion (/home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe)
+10/16/2025 20:33:15 - INFO - __main__ - Dataset loaded: DatasetDict({
+    train: Dataset({
+        features: ['text', 'label'],
+        num_rows: 16000
+    })
+    validation: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+    test: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+})
+10/16/2025 20:33:15 - INFO - __main__ - DatasetDict({
+    train: Dataset({
+        features: ['text', 'label'],
+        num_rows: 16000
+    })
+    validation: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+    test: Dataset({
+        features: ['text', 'label'],
+        num_rows: 2000
+    })
+})
+10/16/2025 20:33:16 - INFO - __main__ - setting problem type to single label classification
+10/16/2025 20:33:17 - WARNING - __main__ - The label2id key in the model config.json is not equal to the label2id key of this run. You can ignore this if you are doing finetuning.
+10/16/2025 20:33:17 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-b8ac2428a1057bd7_*_of_00001.arrow
+10/16/2025 20:33:17 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-721393e362c2a5f2_*_of_00001.arrow
+10/16/2025 20:33:17 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-6504e3b82624e895_*_of_00001.arrow
+10/16/2025 20:33:17 - INFO - __main__ - No PEFT method specified. Performing full fine-tuning.
+10/16/2025 20:33:17 - INFO - __main__ - Shuffling the training dataset
+10/16/2025 20:33:17 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /home/e/e0969050/.cache/huggingface/datasets/dair-ai___emotion/split/0.0.0/cab853a1dbdf4c42c2b3ef2173804746df8825fe/cache-817b0581e49fdde8.arrow
+10/16/2025 20:33:17 - INFO - __main__ - Sample 15152 of the training set: {'text': 'i was already feeling loved for having been asked to be in the bridal party the thank you note made me feel even more so', 'label': 2, 'sentence': 'i was already feeling loved for having been asked to be in the bridal party the thank you note made me feel even more so', 'input_ids': [0, 118, 21, 416, 2157, 2638, 13, 519, 57, 553, 7, 28, 11, 5, 5378, 11934, 537, 5, 3392, 47, 1591, 156, 162, 619, 190, 55, 98, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+10/16/2025 20:33:17 - INFO - __main__ - Sample 12769 of the training set: {'text': 'i have always wanted ice cream when i feel lousy', 'label': 0, 'sentence': 'i have always wanted ice cream when i feel lousy', 'input_ids': [0, 118, 33, 460, 770, 2480, 6353, 77, 939, 619, 38909, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+10/16/2025 20:33:17 - INFO - __main__ - Sample 15541 of the training set: {'text': 'i start to remember how desperately i felt when trying to get pregnant after feeling impressed to start having a family and soon finding that its not as easy as you think to just get pregnant', 'label': 5, 'sentence': 'i start to remember how desperately i felt when trying to get pregnant after feeling impressed to start having a family and soon finding that its not as easy as you think to just get pregnant', 'input_ids': [0, 118, 386, 7, 2145, 141, 12420, 939, 1299, 77, 667, 7, 120, 5283, 71, 2157, 6889, 7, 386, 519, 10, 284, 8, 1010, 2609, 14, 63, 45, 25, 1365, 25, 47, 206, 7, 95, 120, 5283, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+10/16/2025 20:33:19 - INFO - __main__ - Using metric accuracy for evaluation.
+{'eval_loss': 1.9439126253128052, 'eval_accuracy': 0.275, 'eval_runtime': 3.2076, 'eval_samples_per_second': 623.511, 'eval_steps_per_second': 77.939, 'epoch': 1.0}
+{'loss': 2.795, 'grad_norm': 12.114710807800293, 'learning_rate': 0.012016, 'epoch': 2.0}
+{'eval_loss': 1.7416032552719116, 'eval_accuracy': 0.275, 'eval_runtime': 3.1949, 'eval_samples_per_second': 625.991, 'eval_steps_per_second': 78.249, 'epoch': 2.0}
+{'eval_loss': 2.321223497390747, 'eval_accuracy': 0.352, 'eval_runtime': 3.192, 'eval_samples_per_second': 626.564, 'eval_steps_per_second': 78.32, 'epoch': 3.0}
+{'loss': 1.9292, 'grad_norm': 9.354052543640137, 'learning_rate': 0.0040160000000000005, 'epoch': 4.0}
+{'eval_loss': 1.7140119075775146, 'eval_accuracy': 0.275, 'eval_runtime': 3.1997, 'eval_samples_per_second': 625.054, 'eval_steps_per_second': 78.132, 'epoch': 4.0}
+{'eval_loss': 1.5831377506256104, 'eval_accuracy': 0.352, 'eval_runtime': 3.1907, 'eval_samples_per_second': 626.819, 'eval_steps_per_second': 78.352, 'epoch': 5.0}
+{'train_runtime': 281.0467, 'train_samples_per_second': 284.65, 'train_steps_per_second': 4.448, 'train_loss': 2.2289931884765624, 'epoch': 5.0}
+***** train metrics *****
+  epoch                    =        5.0
+  total_flos               =  4901001GF
+  train_loss               =      2.229
+  train_runtime            = 0:04:41.04
+  train_samples            =      16000
+  train_samples_per_second =     284.65
+  train_steps_per_second   =      4.448
+10/16/2025 20:38:02 - INFO - __main__ - *** Evaluate ***
+***** eval metrics *****
+  epoch                   =        5.0
+  eval_accuracy           =      0.352
+  eval_loss               =     2.3212
+  eval_runtime            = 0:00:03.18
+  eval_samples            =       2000
+  eval_samples_per_second =    628.717
+  eval_steps_per_second   =      78.59
+10/16/2025 20:38:05 - INFO - __main__ - *** Predict ***
+***** predict metrics *****
+  predict_accuracy           =     0.3475
+  predict_loss               =     2.3203
+  predict_runtime            = 0:00:03.18
+  predict_samples            =       2000
+  predict_samples_per_second =    628.359
+  predict_steps_per_second   =     78.545
+10/16/2025 20:38:08 - INFO - __main__ - ***** Predict results *****
+10/16/2025 20:38:08 - INFO - __main__ - Predict results saved at ./full_finetuning_outputs/yjkffgw4/predict_results.txt
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mproud-sweep-4[0m at: [34mhttps://wandb.ai/ncduy0303/dsa4213-assignment-3/runs/yjkffgw4[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20251016_203320-yjkffgw4/logs[0m
