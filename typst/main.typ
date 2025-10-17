@@ -9,7 +9,7 @@
 )
 #set text(
   font: "New Computer Modern",
-  size: 11pt,
+  size: 10pt,
   lang: "en",
 )
 #set heading(numbering: "1.")
@@ -40,15 +40,14 @@ The goal of this work is to analyze the performance differences, efficiency trad
 
 = Dataset: Emotion Detection
 
-For this study, we selected the CARER emotion dataset @saravia-etal-2018-carer, a widely used benchmark for multi-class single-label text classification. It consists of English text samples primarily sourced from Twitter. We utilized the predefined train (16k), validation (2k), and test (2k) splits.
-
-*Motivation & Domain:* The task is to classify a given text into one of six distinct emotional categories: sadness, joy, love, anger, fear, and surprise. This is a relevant and challenging task in domains such as social media analysis, customer feedback processing, and mental health monitoring. An example of the data is shown in @fig:dataset-example.
-
 #figure(
   caption: [Examples from the CARER emotion dataset, from #link("https://huggingface.co/datasets/dair-ai/emotion")[`dair-ai/emotion`] on Hugging Face.],
   image("png/dataset-example.png"),
 ) <fig:dataset-example>
 
+For this study, we selected the CARER emotion dataset @saravia-etal-2018-carer, a widely used benchmark for multi-class single-label text classification. It consists of English text samples primarily sourced from Twitter. We utilized the predefined train (16k), validation (2k), and test (2k) splits.
+
+*Motivation & Domain:* The task is to classify a given text into one of six distinct emotional categories: sadness, joy, love, anger, fear, and surprise. This is a relevant and challenging task in domains such as social media analysis, customer feedback processing, and mental health monitoring. An example of the data is shown in @fig:dataset-example.
 
 = Experimental Setup
 
@@ -126,48 +125,92 @@ The core of our analysis is the direct comparison between the best-performing fu
 
 While full fine-tuning achieved the highest absolute accuracy on the test set, prompt tuning delivered a competitive result (within 9% accuracy drop) while training over *200x fewer parameters*. This drastic reduction in trainable parameters also translated to a noticeable decrease in training time (about 20% time reduction for text initialization and 40% for random initialization) as well as a significant reduction in model footprint (over 99% smaller).
 
-Surprisingly, random initialization with 32 tokens consumed less training time than text initialization with 12 tokens, which might be due to the overhead of tokenizing the initialization text. 
+Surprisingly, random initialization with 32 tokens consumed less training time than text initialization with 12 tokens, which might be due to the overhead of tokenizing the initialization text.
 
 It also appears that the number of trainable parameters hardly changed with different number of virtual tokens, indicating that we might be able to achieve a better performance closer to the full fine-tuning baseline with more virtual tokens without significant computational cost.
+
+These results clearly demonstrate the efficiency of PEFT methods. For applications where storage, memory, or training time are constrained, prompt tuning offers a highly effective solution with only a minor compromise in performance. The lesson learned is that it is not always necessary to update every weight in a large model to successfully adapt it to a new task.
 
 #figure(
   caption: [Comparison of the best models from each fine-tuning method.],
   placement: top,
   table(
-    columns: 6,
+    columns: 5,
     stroke: none,
-    align: (auto, auto, auto, auto, auto, auto),
+    align: (auto, auto, auto, auto, auto),
 
     // Header row
     table.header(
-      [*Method*], 
-      [*Learning Rate*], 
-      [*Test Accuracy (%)*], 
-      [*Trainable Parameters (millions / % of baseline)*], 
+      [*Method*],
+      [*Test Accuracy (%)*],
+      [*Trainable Parameters (millions / % of baseline)*],
       [*Model Weight (MB / % of baseline)*],
-      [*Training Time (seconds / % of baseline)*]
+      [*Training Time (seconds / % of baseline)*],
     ),
 
     // Baseline row
-    [Full Fine-Tuning], [2e-5], [92.85], [125 / 100%], [480, 100%], [281 / 100%],
+    [Full Fine-Tuning], [92.85], [125 / 100%], [480, 100%], [281 / 100%],
 
     // Horizontal separator line (span all columns)
     table.hline(stroke: 0.4pt),
 
     // Experiment rows
-    [Prompt Tuning (Initialization with 32 random tokens)], [2e-2], [84.1], [0.62 / 0.495%], [3.2, 0.67%], [*169 / 60.1%*],
-    [Prompt Tuning (Initialization with 12 text tokens "classify the emotion of the following text: ")], [2e-2], [*87.6*], [*0.61 / 0.487%*], [*2.3 / 0.48%*], [235 / 83.6%],
+    [Prompt Tuning (32 random tokens)], [84.1], [0.62 / 0.495%], [3.2, 0.67%], [*169 / 60.1%*],
+    [Prompt Tuning (12 text tokens "classify the emotion of the following text: ")],
+    [*87.6*],
+    [*0.61 / 0.487%*],
+    [*2.3 / 0.48%*],
+    [235 / 83.6%],
   ),
 ) <fig:results-summary>
 
-These results clearly demonstrate the efficiency of PEFT methods. For applications where storage, memory, or training time are constrained, prompt tuning offers a highly effective solution with only a minor compromise in performance. The lesson learned is that it is not always necessary to update every weight in a large model to successfully adapt it to a new task.
+== Error Analysis
+
+To understand the limitations of our best-performing model (full fine-tuning), we analyzed its errors on the test set. A confusion matrix, shown in @fig:confusion-matrix, reveals the primary sources of misclassification.
+
+#figure(
+  caption: [Confusion matrix for the best full fine-tuning model on the test set.],
+  image("png/confusion-matrix.png", width: 70%),
+) <fig:confusion-matrix>
+
+From the matrix, we observe that the most frequent errors occur between semantically similar emotions. For example, the model often confuses *love* with *joy*. This suggests the model struggles with nuanced emotional expressions where lexical cues might overlap.
+
+@fig:error-examples provides a qualitative look at some of these error cases. These examples often involve ambiguous phrasing, or overlapping emotional vocabulary that can mislead the model. For instance, sentences expressing mixed feelings or using words associated with multiple emotions pose significant challenges.
+
+#figure(
+  caption: [Qualitative examples of misclassifications.],
+  placement: top,
+  table(
+    columns: 4,
+    stroke: none,
+    align: (auto, center, center, auto),
+
+    // Header row
+    table.header([*Text*], [*True Label*], [*Predicted Label*], [*Possible Reason for Error*]),
+
+    // Horizontal separator line (span all columns)
+    table.hline(stroke: 0.4pt),
+
+    ["i feel a bit stressed even though all the things i have going on are fun"],
+    [`anger`],
+    [`sadness`],
+    [Mixed feelings. Mentions stress (anger cue) but positive clause (“fun”) may have confused the model toward sadness.],
+
+    ["i feel so blessed and honored that we get to be its parents"],
+    [`love`],
+    [`joy`],
+    [High semantic overlap. "Blessed" is strongly associated with both `love` and `joy`, making it a difficult distinction.],
+
+    ["i feel agitated and annoyed more than worried or fearful but these feelings can easily lead to being short tempered with my family and feelings of disharmon"],
+    [`fear`],
+    [`anger`],
+    [Contrastive phrasing. Explicitly compares `fear` and `anger`, which can confuse classification since both cues co-occur in the same sentence.],
+  ),
+) <fig:error-examples>
 
 = Conclusion
 
 In this report, we successfully fine-tuned a RoBERTa-base model for emotion detection using both full fine-tuning and prompt tuning. Our experiments confirm that while full fine-tuning yields the highest performance, it is computationally expensive, especially regarding memory usage. In contrast, prompt tuning provides a powerful and efficient alternative, achieving comparable accuracy by training only a minuscule fraction of the parameters. We demonstrated that prompt tuning requires higher learning rates and that performance can be further accelerated by initializing virtual prompts with task-relevant text. These findings highlight the significant practical advantages of PEFT methods in adapting large models to specialized tasks.
-
-= References
-#bibliography("./main.bib", title: none, style: "chicago-author-date")
 
 = Appendix
 
@@ -180,3 +223,8 @@ In this report, we successfully fine-tuned a RoBERTa-base model for emotion dete
 == AI Tool Declaration
 
 I used Gemini 2.5 Pro and Github Copilot to generate ideas, format paragraphs, improve drafts, refine, and finalize the assignment. I am responsible for the content and quality of the submitted work.
+
+#pagebreak()
+
+= References
+#bibliography("./main.bib", title: none, style: "chicago-author-date")
