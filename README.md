@@ -11,7 +11,7 @@ The experiments are conducted on the `dair-ai/emotion` dataset, and hyperparamet
 ## Quick Links
 
 - Weights & Biases Project: <https://wandb.ai/ncduy0303/dsa4213-assignment-3>
-- Model Weights (Google Drive): <https://drive.google.com/drive/folders/1fu7JaSRZgzYIWQrdMngBoHxRez4NEHxz?usp=sharing>
+- Model Weights (Google Drive): <https://drive.google.com/drive/folders/1KijIuRguWOMnO8U0R83tUknxgoPp38SA?usp=sharing>
 
 ## Folder Structure
 
